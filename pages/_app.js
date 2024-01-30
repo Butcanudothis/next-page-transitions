@@ -1,7 +1,15 @@
 import '../styles/globals.css'
+import { AnimatePresence } from 'framer-motion'
+import Link from 'next/link';
+import '../styles/styles.scss';
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+export default function App({ Component, pageProps, router }) {
+  return (
+      <div className='main'>
+
+        <AnimatePresence mode='wait'>
+          <Component key={router.route} {...pageProps} />
+        </AnimatePresence>
+      </div>
+  )
 }
-
-export default MyApp
